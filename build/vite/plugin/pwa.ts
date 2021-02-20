@@ -8,14 +8,14 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { ViteEnv } from '../../utils';
 
 export function configPwaConfig(env: ViteEnv) {
-  const { VITE_USE_PWA, VITE_GLOB_APP_TITLE, VITE_GLOB_APP_SHORT_NAME } = env;
+  const { VITE_USE_PWA, VITE_GLOB_APP_TITLE } = env;
 
   if (VITE_USE_PWA) {
     // vite-plugin-pwa
     const pwaPlugin = VitePWA({
       manifest: {
         name: VITE_GLOB_APP_TITLE,
-        short_name: VITE_GLOB_APP_SHORT_NAME,
+        short_name: VITE_GLOB_APP_TITLE,
         icons: [
           {
             src: './resource/img/pwa-192x192.png',
