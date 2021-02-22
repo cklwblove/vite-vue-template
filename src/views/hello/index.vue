@@ -69,7 +69,7 @@
 
   export default defineComponent({
     components: {
-      CatIcon
+      CatIcon,
     },
     data() {
       return {

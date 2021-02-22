@@ -35,10 +35,6 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
           replacement: pathResolve('src') + '/'
         },
         {
-          find: /^variable/,
-          replacement: pathResolve('src/assets/style/variable.less')
-        },
-        {
           find: /^utils/,
           replacement: pathResolve('node_modules/@winner-fed/cloud-utils/dist/cloud-utils.esm')
         }

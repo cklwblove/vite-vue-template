@@ -1,7 +1,7 @@
 /**
  *
  * @authors liwb (lwbhtml@gmail.com)
- * @date    2018/6/5 上午10:43
+ * @date    2021/02/22
  * @description https://github.com/mzabriskie/axios
  * 安卓4.4.3一下的手机还是不支持Promise的,需要引入npm install babel-polyfill和npm install babel-runtime，在入口文件上加上即可
  * import 'babel-polyfill';
