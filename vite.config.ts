@@ -12,7 +12,7 @@ function pathResolve(dir: string) {
   return resolve(__dirname, '.', dir);
 }
 
-export default ({command, mode}: ConfigEnv): UserConfig => {
+export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
 
   const env = loadEnv(mode, root);
@@ -32,21 +32,21 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
         {
           // /@/xxxx  =>  src/xxx
           find: /^\/@\//,
-          replacement: pathResolve('src') + '/'
+          replacement: pathResolve('src') + '/',
         },
         {
           find: /^utils/,
-          replacement: pathResolve('node_modules/@winner-fed/cloud-utils/dist/cloud-utils.esm')
-        }
-      ]
+          replacement: pathResolve('node_modules/@winner-fed/cloud-utils/dist/cloud-utils.esm'),
+        },
+      ],
     },
     server: {
       port: VITE_PORT,
       // Load proxy configuration from .env
       proxy: createProxy(VITE_PROXY),
       hmr: {
-        overlay: true
-      }
+        overlay: true,
+      },
     },
 
     build: {
@@ -56,19 +56,12 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
         compress: {
           keep_infinity: true,
           // Used to delete console in production environment
-          drop_console: VITE_DROP_CONSOLE
-        }
+          drop_console: VITE_DROP_CONSOLE,
+        },
       },
       // Turning off brotliSize display can slightly reduce packaging time
       brotliSize: false,
-      chunkSizeWarningLimit: 1200
-    },
-    define: {
-      // setting vue-i18-next
-      // Suppress warning
-      __VUE_I18N_LEGACY_API__: false,
-      __VUE_I18N_FULL_INSTALL__: false,
-      __INTLIFY_PROD_DEVTOOLS__: false
+      chunkSizeWarningLimit: 1200,
     },
     css: {
       preprocessorOptions: {
@@ -77,16 +70,16 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
             // Used for global import to avoid the need to import each style file separately
             // reference:  Avoid repeated references
           },
-          javascriptEnabled: true
-        }
-      }
+          javascriptEnabled: true,
+        },
+      },
     },
 
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
     plugins: createVitePlugins(viteEnv, isBuild),
 
     optimizeDeps: {
-      exclude: ['vue-demi']
-    }
+      exclude: ['vue-demi'],
+    },
   };
 };

@@ -10,17 +10,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/hello',
     name: 'hello',
-    component: () => import('/@/views/hello/index.vue')
+    component: () => import('/@/views/hello/index.vue'),
   },
   {
     path: '/',
-    redirect: '/hello'
-  }
+    redirect: '/hello',
+  },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 });
 
 export function setupRouter(app) {
