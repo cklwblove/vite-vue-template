@@ -66,6 +66,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
+          additionalData: `@import "@/assets/style/variable.less";@import "@winner-fed/magicless/magicless.less";`,
           modifyVars: {
             // Used for global import to avoid the need to import each style file separately
             // reference:  Avoid repeated references
