@@ -5,7 +5,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import legacy from '@vitejs/plugin-legacy';
 
 import svgLoader from 'vite-svg-loader';
-import { ViteEnv } from '../../utils';
 import { configHtmlPlugin } from './html';
 // import { configPwaConfig } from './pwa';
 import { configCompressPlugin } from './compress';

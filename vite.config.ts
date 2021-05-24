@@ -34,6 +34,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           find: /^\/@\//,
           replacement: pathResolve('src') + '/',
         },
+        // /#/xxxx => types/xxxx
+        {
+          find: /\/#\//,
+          replacement: pathResolve('types') + '/',
+        },
         {
           find: /^utils/,
           replacement: pathResolve('node_modules/@winner-fed/cloud-utils/dist/cloud-utils.esm'),
@@ -50,6 +55,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
 
     build: {
+      target: 'es2015',
       outDir: OUTPUT_DIR,
       polyfillDynamicImport: VITE_LEGACY,
       terserOptions: {
@@ -66,7 +72,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
-          additionalData: `@import "@/assets/style/variable.less";@import "@winner-fed/magicless/magicless.less";`,
+          additionalData: `@import "/@/assets/style/variable.less";@import "@winner-fed/magicless/magicless.less";`,
           modifyVars: {
             // Used for global import to avoid the need to import each style file separately
             // reference:  Avoid repeated references

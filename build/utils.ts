@@ -2,12 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
-export const isFunction = (arg: unknown): arg is (...args: any[]) => any =>
-  typeof arg === 'function';
-
-export const isRegExp = (arg: unknown): arg is RegExp =>
-  Object.prototype.toString.call(arg) === '[object RegExp]';
-
 export function isDevFn(mode: string): boolean {
   return mode === 'development';
 }
@@ -21,20 +15,6 @@ export function isProdFn(mode: string): boolean {
  */
 export function isReportMode(): boolean {
   return process.env.REPORT === 'true';
-}
-
-export interface ViteEnv {
-  VITE_PORT: number;
-  VITE_USE_PWA: boolean;
-  VITE_PUBLIC_PATH: string;
-  VITE_PROXY: [string, string][];
-  VITE_GLOB_APP_TITLE: string;
-  VITE_USE_CDN: boolean;
-  VITE_DROP_CONSOLE: boolean;
-  VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none';
-  VITE_DYNAMIC_IMPORT: boolean;
-  VITE_LEGACY: boolean;
-  VITE_USE_IMAGEMIN: boolean;
 }
 
 // Read all environment variable configuration files to process.env
@@ -85,6 +65,6 @@ export function getEnvConfig(match = 'VITE_GLOB_', confFiles = ['.env', '.env.pr
  * Get user root directory
  * @param dir file path
  */
-export function getCwdPath(...dir: string[]) {
+export function getRootPath(...dir: string[]) {
   return path.resolve(process.cwd(), ...dir);
 }

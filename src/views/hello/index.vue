@@ -2,7 +2,7 @@
   <div class="page page-hello">
     <div class="page-content">
       <!-- 静态资源路径写法事例 -->
-      <img src="@/assets/img/logo.png" />
+      <img src="/@/assets/img/logo.png" />
       <h1 v-text="msg"></h1>
       <i class="iconfont iconfont-clock"></i>
       <h2 v-text="message"></h2>
