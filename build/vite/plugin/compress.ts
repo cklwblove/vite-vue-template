@@ -5,7 +5,10 @@ import type { Plugin } from 'vite';
 
 import compressPlugin from 'vite-plugin-compression';
 
-export function configCompressPlugin(compress: 'gzip' | 'brotli' | 'none'): Plugin | Plugin[] {
+export function configCompressPlugin(
+  compress: 'gzip' | 'brotli' | 'none',
+  deleteOriginFile = false
+): Plugin | Plugin[] {
   const compressList = compress.split(',');
 
   const plugins: Plugin[] = [];
@@ -14,6 +17,7 @@ export function configCompressPlugin(compress: 'gzip' | 'brotli' | 'none'): Plug
     plugins.push(
       compressPlugin({
         ext: '.gz',
+        deleteOriginFile,
       })
     );
   }
@@ -22,6 +26,7 @@ export function configCompressPlugin(compress: 'gzip' | 'brotli' | 'none'): Plug
       compressPlugin({
         ext: '.br',
         algorithm: 'brotliCompress',
+        deleteOriginFile,
       })
     );
   }

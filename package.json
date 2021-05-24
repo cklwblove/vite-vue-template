@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "bootstrap": "yarn install",
-    "serve": "vite",
+    "dev": "tsc --noEmit && vite",
     "start": "npm run dev",
-    "dev": "vite",
+    "serve": "npm run dev",
     "build": "vite build",
     "build:no-cache": "yarn clean:cache && npm run build",
     "report": "cross-env REPORT=true npm run build",
@@ -14,16 +14,18 @@
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "npx rimraf node_modules",
-    "typecheck": "vuedx-typecheck .",
+    "type:check": "vue-tsc --noEmit --skipLibCheck",
     "lint:eslint": "eslint \"src/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:ls-lint": "ls-lint",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged",
     "test:gzip": "http-server dist --cors --gzip -c-1",
     "test:br": "http-server dist --cors --brotli -c-1",
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
-    "postinstall": "is-ci || husky install"
+    "install:husky": "is-ci || husky install",
+    "postinstall": "npm run install:husky"
   },
   "dependencies": {
     "@winner-fed/cloud-utils": "*",
@@ -47,8 +49,6 @@
     "@vitejs/plugin-vue": "^1.1.4",
     "@vitejs/plugin-vue-jsx": "^1.1.0",
     "@vue/compiler-sfc": "^3.0.5",
-    "@vuedx/typecheck": "^0.6.3",
-    "@vuedx/typescript-plugin-vue": "^0.6.3",
     "@winner-fed/stylelint-config-win": "^0.1.2",
     "autoprefixer": "^10.2.4",
     "commitizen": "^4.2.3",
@@ -57,33 +57,37 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-define-config": "^1.0.8",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.6.0",
+    "esno": "^0.5.0",
     "http-server": "^0.12.3",
     "husky": "^5.0.9",
     "is-ci": "^2.0.0",
     "less": "^4.1.1",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
     "rimraf": "^3.0.2",
     "rollup-plugin-visualizer": "^4.2.0",
     "stylelint": "^13.10.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5",
-    "vite": "2.0.1",
+    "vite": "2.1.5",
     "vite-plugin-compression": "^0.2.1",
     "vite-plugin-html": "^2.0.0",
-    "vite-plugin-imagemin": "^0.2.6",
+    "vite-plugin-imagemin": "^0.3.0",
     "vite-plugin-purge-icons": "^0.7.0",
     "vite-plugin-pwa": "^0.4.7",
-    "vite-plugin-style-import": "^0.7.2",
+    "vite-plugin-style-import": "^0.10.0",
     "vite-svg-loader": "^1.4.2",
-    "vue-eslint-parser": "^7.5.0"
+    "vue-eslint-parser": "^7.6.0",
+    "vue-tsc": "^0.0.25"
   },
   "resolutions": {
     "//": "Used to install imagemin dependencies, because imagemin may not be installed in China.If it is abroad, you can delete it",
     "bin-wrapper": "npm:bin-wrapper-china",
-    "ecstatic": "4.1.4"
+    "rollup": "^2.45.2"
   },
   "repository": {
     "type": "git",
@@ -95,6 +99,6 @@
   },
   "homepage": "https://github.com/cklwblove/vite-vue-template",
   "engines": {
-    "node": "^12 || ^14 || ^15 || ^16"
+    "node": "^12 || >=14"
   }
 }

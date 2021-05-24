@@ -18,12 +18,12 @@ export function configPwaConfig(env: ViteEnv) {
         short_name: VITE_GLOB_APP_TITLE,
         icons: [
           {
-            src: './resource/img/pwa-192x192.png',
+            src: './img/icons/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: './resource/img/pwa-512x512.png',
+            src: './img/icons/android-chrome-512x512.png',
             sizes: '512x512',
             type: 'image/png',
           },

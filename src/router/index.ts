@@ -4,7 +4,9 @@
  * @date    2020/10/14
  * @description 定义路由模块
  */
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import type { App } from 'vue';
+import type { RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -23,7 +25,7 @@ const router = createRouter({
   routes,
 });
 
-export function setupRouter(app) {
+export function setupRouter(app: App<Element>) {
   app.use(router);
 }
 
