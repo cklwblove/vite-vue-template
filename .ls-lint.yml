@@ -17,5 +17,6 @@ ignore:
   - .circleci
   - .github
   - .vscode
+  - .idea
   - dist
   - .local
