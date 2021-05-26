@@ -3,7 +3,7 @@ import './assets/style/app.less';
 import { createApp } from 'vue';
 import App from './App.vue';
 import router, { setupRouter } from './router';
-import './router/router.interceptor';
+import { setupRouterGuard } from '/@/router/guard';
 import { setGlobalProperties } from '/@/services';
 
 (async () => {
@@ -11,6 +11,8 @@ import { setGlobalProperties } from '/@/services';
 
   setGlobalProperties(app);
   setupRouter(app);
+  // router-guard
+  setupRouterGuard();
 
   // Mount when the route is ready
   // https://next.router.vuejs.org/api/#isready
