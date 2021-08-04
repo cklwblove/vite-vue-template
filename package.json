@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "bootstrap": "yarn install",
-    "dev": "tsc --noEmit && vite",
+    "dev": "vite",
     "start": "npm run dev",
     "serve": "npm run dev",
     "build": "vite build",
@@ -31,6 +31,7 @@
     "@winner-fed/cloud-utils": "*",
     "@winner-fed/magicless": "*",
     "axios": "^0.21.1",
+    "mitt": "^3.0.0",
     "normalize.css": "8.0.1",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",
@@ -73,8 +74,8 @@
     "stylelint": "^13.10.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5",
-    "vite": "2.1.5",
-    "vite-plugin-compression": "^0.2.1",
+    "vite": "2.4.4",
+    "vite-plugin-compression": "^0.3.3",
     "vite-plugin-html": "^2.0.0",
     "vite-plugin-imagemin": "^0.3.0",
     "vite-plugin-purge-icons": "^0.7.0",
@@ -82,7 +83,7 @@
     "vite-plugin-style-import": "^0.10.0",
     "vite-svg-loader": "^1.4.2",
     "vue-eslint-parser": "^7.6.0",
-    "vue-tsc": "^0.0.25"
+    "vue-tsc": "^0.2.2"
   },
   "resolutions": {
     "//": "Used to install imagemin dependencies, because imagemin may not be installed in China.If it is abroad, you can delete it",
