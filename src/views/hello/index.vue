@@ -7,6 +7,7 @@
       <i class="iconfont iconfont-clock"></i>
       <h2 v-text="message"></h2>
       <CatIcon />
+      <SvgIcon name="dog" />
       <div class="demo">
         <h3>方法示例</h3>
         <pre>
@@ -67,10 +68,12 @@
   // 工具类
   import { formatDate } from 'utils';
   import CatIcon from '/@/icons/svg/cat.svg';
+  import SvgIcon from '/@/icons/SvgIcon.vue';
 
   export default defineComponent({
     components: {
       CatIcon,
+      SvgIcon,
     },
     data() {
       return {

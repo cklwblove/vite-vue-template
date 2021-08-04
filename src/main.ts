@@ -6,6 +6,9 @@ import router, { setupRouter } from './router';
 import { setupRouterGuard } from '/@/router/guard';
 import { setGlobalProperties } from '/@/services';
 
+// Register icon Sprite
+import 'virtual:svg-icons-register';
+
 (async () => {
   const app = createApp(App);
 

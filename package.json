@@ -81,6 +81,7 @@
     "vite-plugin-purge-icons": "^0.7.0",
     "vite-plugin-pwa": "^0.4.7",
     "vite-plugin-style-import": "^0.10.0",
+    "vite-plugin-svg-icons": "^1.0.4",
     "vite-svg-loader": "^1.4.2",
     "vue-eslint-parser": "^7.6.0",
     "vue-tsc": "^0.2.2"
