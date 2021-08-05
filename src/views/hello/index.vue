@@ -7,7 +7,7 @@
       <i class="iconfont iconfont-clock"></i>
       <h2 v-text="message"></h2>
       <CatIcon />
-      <SvgIcon name="dog" />
+      <SvgIcon class="icon-dog" name="dog" />
       <div class="demo">
         <h3>方法示例</h3>
         <pre>
